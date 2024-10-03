@@ -15,7 +15,7 @@ rutas.get("/buscarPorId/:id", async (req,res)=>{
 rutas.post("/nuevaVenta", async (req,res)=>{
     const venta = await nuevaVenta(req.body);
     res.json(venta);
-});
+}); 
 
 rutas.post("/cancelarVenta/:id", async (req, res) => {
     const id = req.params.id;

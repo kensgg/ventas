@@ -55,7 +55,7 @@ class Venta {
     get idUsuario() {
         return this._idUsuario;
     }
-    
+
     get getVenta() {
         return {
             id: this._id,
@@ -65,7 +65,17 @@ class Venta {
             idProducto: this._idProducto,
             idUsuario: this._idUsuario
         };
-    }         
+    }
+
+    get getVentaConId() {
+        return {
+            cantidad: this._cantidad,
+            estatus: this._estatus,
+            fecha: this._fecha,
+            idProducto: this._idProducto,
+            idUsuario: this._idUsuario
+        };
+    }          
 }
 
 module.exports = Venta;

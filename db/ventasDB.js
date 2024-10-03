@@ -42,19 +42,23 @@ async function nuevaVenta(data) {
     if (!productoValido) {
         throw new Error('El producto no existe');
     }
+    
     const fechaActual = new Date().toISOString();
     const ventaData = {
-        ...data,
-        fecha: fechaActual
+        cantidad: data.cantidad,
+        estatus: data.estatus,
+        fecha: fechaActual,
+        idProducto: data.idProducto,
+        idUsuario: data.idUsuario
     };
     const venta1 = new Venta(ventaData);
     var ventaValida = false;
-    if (validarDatos(venta1.getVenta)) {
-        await ventaDB.doc().set(venta1.getVenta);
-        ventaValida = true;
-    }
-    return ventaValida;
+    const docRef = ventaDB.doc();
+    await docRef.set(venta1.getVentaConId);
+    venta1.id = docRef.id; 
+    return { id: venta1.id, ...venta1.getVenta };
 }
+
 
 
 async function actualizarVenta(id, nuevoEstatus) {
