@@ -17,11 +17,11 @@ rutas.post("/nuevaVenta", async (req,res)=>{
     res.json(venta);
 });
 
-rutas.post("/actualizarVenta/:id", async (req, res) => {
+rutas.post("/cancelarVenta/:id", async (req, res) => {
     const id = req.params.id;
-    const nuevoEstatus = req.body.estatus;
+    const nuevoEstatus = "cancelado";
     const venta = await actualizarVenta(id, nuevoEstatus);
-    res.json(venta);
+   res.json(venta);
 });
 
 module.exports = rutas;

@@ -68,6 +68,7 @@ async function actualizarVenta(id, nuevoEstatus) {
 }
 
 
+
 module.exports={
     mostrarVentas,
     buscarPorID,
